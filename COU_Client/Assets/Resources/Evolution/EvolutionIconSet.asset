@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886eab7274dbb44f8ec58cc89a8a545, type: 3}
+  m_Name: EvolutionIconSet
+  m_EditorClassIdentifier: Assembly-CSharp::EvolutionIconSet
+  attack: {fileID: 5690084535775578997, guid: 6c4fc7e5d151fa04d8be2626e29e3215, type: 3}
+  hp: {fileID: 8414402976007778116, guid: 3943c026e30c8f14a8c61cf834c6657b, type: 3}
+  defense: {fileID: 4006921723926917495, guid: 77cd7d80ec61a9840a3affbc35f12d15, type: 3}
+  potionRecovery: {fileID: -7664628201357863293, guid: 6c6e5b2225e321047b9aba975ea3b67b, type: 3}

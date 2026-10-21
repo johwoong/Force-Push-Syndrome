@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1278496cff65d4587007d2be0a8e34, type: 3}
+  m_Name: WeaponAppearanceSet
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponAppearanceSet
+  entries:
+  - itemId: 6001
+    rightHand: {fileID: -8013385344132003758, guid: b52a6f107d07d664ca8464d9f42a052a, type: 3}
+    leftHand: {fileID: 0}
+    attackAnimationIndex: 0
+    attackHitTime: 0.3
+  - itemId: 6002
+    rightHand: {fileID: 4140913377161868595, guid: b71e27f8f5f371644915d0f303853266, type: 3}
+    leftHand: {fileID: 0}
+    attackAnimationIndex: 0
+    attackHitTime: 0
+  - itemId: 6003
+    rightHand: {fileID: 2079895307408386324, guid: 826ebefc5dd1c6b4a8a811185fc2d602, type: 3}
+    leftHand: {fileID: 0}
+    attackAnimationIndex: 0
+    attackHitTime: 0

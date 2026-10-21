@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd3fde3b1c4dd44490de3c958b86261, type: 3}
+  m_Name: SkillPrefabTable
+  m_EditorClassIdentifier: Assembly-CSharp::SkillPrefabTable
+  _entries:
+  - SkillId: 20010
+    Prefab: {fileID: 821606016448725858, guid: 9346524f58e0db64ab65bb660a2cf16d, type: 3}
+    EvolvedPrefab: {fileID: 0}
+  - SkillId: 20020
+    Prefab: {fileID: 2338914800080330476, guid: cb940683502f36140815de2a5a14f98b, type: 3}
+    EvolvedPrefab: {fileID: 2338914800080330476, guid: 11993974b15bf944cb676f0077713a49, type: 3}
+  - SkillId: 20030
+    Prefab: {fileID: 1795480418005466387, guid: 51c416e7e70d5e848bf818f081fef0a0, type: 3}
+    EvolvedPrefab: {fileID: 1795480418005466387, guid: 0a5cde4afff9e1644a7d1f6ac2485582, type: 3}
+  - SkillId: 20040
+    Prefab: {fileID: 5918010912394892784, guid: 80404a537fd09fe4d988042ee070e970, type: 3}
+    EvolvedPrefab: {fileID: 5918010912394892784, guid: fe37acd1b74868946bb62de791390ec8, type: 3}
+  - SkillId: 20050
+    Prefab: {fileID: 3662629856818879847, guid: a39695b8c8b80a34ba1d4e6b69fbbcb8, type: 3}
+    EvolvedPrefab: {fileID: 3662629856818879847, guid: 08fbf71c03419d3449f2011557f1030f, type: 3}
+  - SkillId: 20060
+    Prefab: {fileID: 156895646617383541, guid: cb6041c47824d2c4293311d7109683bc, type: 3}
+    EvolvedPrefab: {fileID: 7817725124237295204, guid: 284786c6d408f9d4594012beb501cefe, type: 3}
+  - SkillId: 20070
+    Prefab: {fileID: 7294035956225713027, guid: d0de6e7658d93204b833bbcf25c83d4d, type: 3}
+    EvolvedPrefab: {fileID: 7294035956225713027, guid: f5cbd2842967db24ebc77838df6267c4, type: 3}
+  - SkillId: 20080
+    Prefab: {fileID: 4324540493834723641, guid: 6f237ae07fe4e82428a21bf72745b378, type: 3}
+    EvolvedPrefab: {fileID: -6649130366125310055, guid: fb17897bf8bd58c4ab2ae2c9b7e92a17, type: 3}
+  - SkillId: 20090
+    Prefab: {fileID: 7048623749671741063, guid: e06d17da40670f548a353c4366387d1d, type: 3}
+    EvolvedPrefab: {fileID: 7048623749671741063, guid: 1da09c0c4554e93438b57f15b4e7f1db, type: 3}

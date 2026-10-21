@@ -1,0 +1,2015 @@
+fileFormatVersion: 2
+guid: 8a871b947ec52634d88acbd06d7c9021
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5906894631561811187
+    second: fire_explosion_high_0
+  - first:
+      213: -5993173414571873331
+    second: fire_explosion_high_1
+  - first:
+      213: 3277324850343617998
+    second: fire_explosion_high_2
+  - first:
+      213: 2434763136881307264
+    second: fire_explosion_high_3
+  - first:
+      213: 3379392966087188788
+    second: fire_explosion_high_4
+  - first:
+      213: -1965056902117645733
+    second: fire_explosion_high_5
+  - first:
+      213: 90118030937298836
+    second: fire_explosion_high_6
+  - first:
+      213: 4828299001935184631
+    second: fire_explosion_high_7
+  - first:
+      213: -3279962968779544826
+    second: fire_explosion_high_8
+  - first:
+      213: 4151204167066940516
+    second: fire_explosion_high_9
+  - first:
+      213: 9078579088985230314
+    second: fire_explosion_high_10
+  - first:
+      213: 479183276573350868
+    second: fire_explosion_high_11
+  - first:
+      213: -5905645095271479290
+    second: fire_explosion_high_12
+  - first:
+      213: 8515228983527671645
+    second: fire_explosion_high_13
+  - first:
+      213: 8313947401955042104
+    second: fire_explosion_high_14
+  - first:
+      213: -5744689678782520193
+    second: fire_explosion_high_15
+  - first:
+      213: -612864562283547497
+    second: fire_explosion_high_16
+  - first:
+      213: -5956540856218919878
+    second: fire_explosion_high_17
+  - first:
+      213: -3296833848436832672
+    second: fire_explosion_high_18
+  - first:
+      213: 1582524256456582086
+    second: fire_explosion_high_19
+  - first:
+      213: 1221877339657087316
+    second: fire_explosion_high_20
+  - first:
+      213: -5933664979565993313
+    second: fire_explosion_high_21
+  - first:
+      213: -3263153615431844509
+    second: fire_explosion_high_22
+  - first:
+      213: -8715826087762974504
+    second: fire_explosion_high_23
+  - first:
+      213: 3196516562596952639
+    second: fire_explosion_high_24
+  - first:
+      213: -2610063637625125642
+    second: fire_explosion_high_25
+  - first:
+      213: 8504935395611556177
+    second: fire_explosion_high_26
+  - first:
+      213: 525105750675112535
+    second: fire_explosion_high_27
+  - first:
+      213: -5316688212082765943
+    second: fire_explosion_high_28
+  - first:
+      213: 9145517502695507803
+    second: fire_explosion_high_29
+  - first:
+      213: -1785598961428338168
+    second: fire_explosion_high_30
+  - first:
+      213: -1122594194542593796
+    second: fire_explosion_high_31
+  - first:
+      213: 5587187284988966231
+    second: fire_explosion_high_32
+  - first:
+      213: 5509801152267007873
+    second: fire_explosion_high_33
+  - first:
+      213: -640248504215723513
+    second: fire_explosion_high_34
+  - first:
+      213: 7734621388672840318
+    second: fire_explosion_high_35
+  - first:
+      213: 7168976851763149181
+    second: fire_explosion_high_36
+  - first:
+      213: -7725708391891277551
+    second: fire_explosion_high_37
+  - first:
+      213: 9213562576085577276
+    second: fire_explosion_high_38
+  - first:
+      213: 4664825529409243131
+    second: fire_explosion_high_39
+  - first:
+      213: -1879796595695880291
+    second: fire_explosion_high_40
+  - first:
+      213: 3250655250651543011
+    second: fire_explosion_high_41
+  - first:
+      213: 1551125216296259449
+    second: fire_explosion_high_42
+  - first:
+      213: -2678167101768124002
+    second: fire_explosion_high_43
+  - first:
+      213: 1646444935002315565
+    second: fire_explosion_high_44
+  - first:
+      213: -5904655615039549662
+    second: fire_explosion_high_45
+  - first:
+      213: 1960353465270195772
+    second: fire_explosion_high_46
+  - first:
+      213: -4553777151808869079
+    second: fire_explosion_high_47
+  - first:
+      213: 2394773596619482528
+    second: fire_explosion_high_48
+  - first:
+      213: -8193535307037363601
+    second: fire_explosion_high_49
+  - first:
+      213: 102852831449561112
+    second: fire_explosion_high_50
+  - first:
+      213: -2137456834178784899
+    second: fire_explosion_high_51
+  - first:
+      213: 2903728128206831356
+    second: fire_explosion_high_52
+  - first:
+      213: -914699409398532049
+    second: fire_explosion_high_53
+  - first:
+      213: 3122632658979658982
+    second: fire_explosion_high_54
+  - first:
+      213: 4554242084160970341
+    second: fire_explosion_high_55
+  - first:
+      213: -2827757799433859881
+    second: fire_explosion_high_56
+  - first:
+      213: 7636310822255151988
+    second: fire_explosion_high_57
+  - first:
+      213: -3349595871628055158
+    second: fire_explosion_high_58
+  - first:
+      213: 1843790117204178890
+    second: fire_explosion_high_59
+  - first:
+      213: 2697535704596503027
+    second: fire_explosion_high_60
+  - first:
+      213: 7047114358825178523
+    second: fire_explosion_high_61
+  - first:
+      213: -8620595947146828649
+    second: fire_explosion_high_62
+  - first:
+      213: 6787879940053476626
+    second: fire_explosion_high_63
+  - first:
+      213: -6834153435682578291
+    second: fire_explosion_high_64
+  - first:
+      213: -7864075338116649817
+    second: fire_explosion_high_65
+  - first:
+      213: -2924651226961361939
+    second: fire_explosion_high_66
+  - first:
+      213: -3517301999270754141
+    second: fire_explosion_high_67
+  - first:
+      213: 9163467781248306441
+    second: fire_explosion_high_68
+  - first:
+      213: -476917088465617842
+    second: fire_explosion_high_69
+  - first:
+      213: 3755481724904663820
+    second: fire_explosion_high_70
+  - first:
+      213: 7956163041623493897
+    second: fire_explosion_high_71
+  - first:
+      213: 8675440191936588090
+    second: fire_explosion_high_72
+  - first:
+      213: -8641747866306469981
+    second: fire_explosion_high_73
+  - first:
+      213: -6620804466970454795
+    second: fire_explosion_high_74
+  - first:
+      213: -3605849326096910404
+    second: fire_explosion_high_75
+  - first:
+      213: 5647190591655425156
+    second: fire_explosion_high_76
+  - first:
+      213: -1885368534107829696
+    second: fire_explosion_high_77
+  - first:
+      213: 2395389675797009422
+    second: fire_explosion_high_78
+  - first:
+      213: 9163297632576789485
+    second: fire_explosion_high_79
+  - first:
+      213: -3580435654898348019
+    second: fire_explosion_high_80
+  - first:
+      213: 7713129038999255340
+    second: fire_explosion_high_81
+  - first:
+      213: -1301762699720478999
+    second: fire_explosion_high_82
+  - first:
+      213: -898521128730548641
+    second: fire_explosion_high_83
+  - first:
+      213: 3725894928503016243
+    second: fire_explosion_high_84
+  - first:
+      213: -8453980376782749101
+    second: fire_explosion_high_85
+  - first:
+      213: -2951308074717436116
+    second: fire_explosion_high_86
+  - first:
+      213: 2953828767801655280
+    second: fire_explosion_high_87
+  - first:
+      213: 1279159696286857666
+    second: fire_explosion_high_88
+  - first:
+      213: 5687692789318867597
+    second: fire_explosion_high_89
+  - first:
+      213: 8097177210213099837
+    second: fire_explosion_high_90
+  - first:
+      213: 6449887413389844102
+    second: fire_explosion_high_91
+  - first:
+      213: -3643068033177870680
+    second: fire_explosion_high_92
+  - first:
+      213: -4375411986050556580
+    second: fire_explosion_high_93
+  - first:
+      213: -7108809926703880433
+    second: fire_explosion_high_94
+  - first:
+      213: 3868381307239466460
+    second: fire_explosion_high_95
+  - first:
+      213: 3199603628090446019
+    second: fire_explosion_high_96
+  - first:
+      213: 8924400611169954651
+    second: fire_explosion_high_97
+  - first:
+      213: -445203791105809969
+    second: fire_explosion_high_98
+  - first:
+      213: -8441414524904231705
+    second: fire_explosion_high_99
+  - first:
+      213: 1717214488739231273
+    second: fire_explosion_high_100
+  - first:
+      213: -82990939075050000
+    second: fire_explosion_high_101
+  - first:
+      213: -1634028990889026332
+    second: fire_explosion_high_102
+  - first:
+      213: -9084318894310350063
+    second: fire_explosion_high_103
+  - first:
+      213: -5602709003421251464
+    second: fire_explosion_high_104
+  - first:
+      213: -3292808073066867121
+    second: fire_explosion_high_105
+  - first:
+      213: 1730400120465872994
+    second: fire_explosion_high_106
+  - first:
+      213: -3487371715927451722
+    second: fire_explosion_high_107
+  - first:
+      213: 2144886934971008798
+    second: fire_explosion_high_108
+  - first:
+      213: -53040225264284981
+    second: fire_explosion_high_109
+  - first:
+      213: -3692890572310129607
+    second: fire_explosion_high_110
+  - first:
+      213: 3642922192185235582
+    second: fire_explosion_high_111
+  - first:
+      213: 373673899061112171
+    second: fire_explosion_high_112
+  - first:
+      213: -8898566547639555480
+    second: fire_explosion_high_113
+  - first:
+      213: -9221033800106880284
+    second: fire_explosion_high_114
+  - first:
+      213: -5198470440927168216
+    second: fire_explosion_high_115
+  - first:
+      213: -8108442821982915463
+    second: fire_explosion_high_116
+  - first:
+      213: 6947504575166167939
+    second: fire_explosion_high_117
+  - first:
+      213: 8155576685888995313
+    second: fire_explosion_high_118
+  - first:
+      213: -1297002484198056663
+    second: fire_explosion_high_119
+  - first:
+      213: 3374951196869197597
+    second: fire_explosion_high_120
+  - first:
+      213: -5765087475337844423
+    second: fire_explosion_high_121
+  - first:
+      213: -801255673496765020
+    second: fire_explosion_high_122
+  - first:
+      213: 6056069968115819979
+    second: fire_explosion_high_123
+  - first:
+      213: -7458432821149281869
+    second: fire_explosion_high_124
+  - first:
+      213: 4518205531196680231
+    second: fire_explosion_high_125
+  - first:
+      213: 3760311466873755247
+    second: fire_explosion_high_126
+  - first:
+      213: 3893036292754218434
+    second: fire_explosion_high_127
+  - first:
+      213: -4279938186529088844
+    second: fire_explosion_high_128
+  - first:
+      213: 1931885337222577077
+    second: fire_explosion_high_129
+  - first:
+      213: -2676814156054079046
+    second: fire_explosion_high_130
+  - first:
+      213: -1958950559577499010
+    second: fire_explosion_high_131
+  - first:
+      213: 1443354326562114140
+    second: fire_explosion_high_132
+  - first:
+      213: 9166685246473567154
+    second: fire_explosion_high_133
+  - first:
+      213: -2780723537443875026
+    second: fire_explosion_high_134
+  - first:
+      213: -6628303626082786853
+    second: fire_explosion_high_135
+  - first:
+      213: -8571745199017675121
+    second: fire_explosion_high_136
+  - first:
+      213: 4067877839162951672
+    second: fire_explosion_high_137
+  - first:
+      213: -316033352512916456
+    second: fire_explosion_high_138
+  - first:
+      213: -9156609829943173362
+    second: fire_explosion_high_139
+  - first:
+      213: 7399629931223712420
+    second: fire_explosion_high_140
+  - first:
+      213: 4444032442816746357
+    second: fire_explosion_high_141
+  - first:
+      213: -6029293388459302791
+    second: fire_explosion_high_142
+  - first:
+      213: -2126826915352246310
+    second: fire_explosion_high_143
+  - first:
+      213: -181992397177084442
+    second: fire_explosion_high_144
+  - first:
+      213: -2043315024756616515
+    second: fire_explosion_high_145
+  - first:
+      213: -225675210571590855
+    second: fire_explosion_high_146
+  - first:
+      213: -3360494945848678578
+    second: fire_explosion_high_147
+  - first:
+      213: 2024896871852301753
+    second: fire_explosion_high_148
+  - first:
+      213: -2217315234908481491
+    second: fire_explosion_high_149
+  - first:
+      213: -5914400295002447960
+    second: fire_explosion_high_150
+  - first:
+      213: -5134841329723494614
+    second: fire_explosion_high_151
+  - first:
+      213: 145812417936056419
+    second: fire_explosion_high_152
+  - first:
+      213: 8277745394111466315
+    second: fire_explosion_high_153
+  - first:
+      213: 6722997165218338137
+    second: fire_explosion_high_154
+  - first:
+      213: 2416363300964651913
+    second: fire_explosion_high_155
+  - first:
+      213: 3322993347913589754
+    second: fire_explosion_high_156
+  - first:
+      213: 4177747437159333270
+    second: fire_explosion_high_157
+  - first:
+      213: 240498150542450690
+    second: fire_explosion_high_158
+  - first:
+      213: 6129601174561503571
+    second: fire_explosion_high_159
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fire_explosion_high_0
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 7000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ba810f0ae760ea0800000000000000
+      internalID: -5906894631561811187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_1
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 7000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcbe02b5888f3dca0800000000000000
+      internalID: -5993173414571873331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_2
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 7000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5aa4e56956b7d20800000000000000
+      internalID: 3277324850343617998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_3
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 7000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ea60e4c240ac120800000000000000
+      internalID: 2434763136881307264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_4
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 7000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431a4147ff306ee20800000000000000
+      internalID: 3379392966087188788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5229d9a827bab4e0800000000000000
+      internalID: -1965056902117645733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_6
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49710e52fd9204100800000000000000
+      internalID: 90118030937298836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_7
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f248bf5c50910340800000000000000
+      internalID: 4828299001935184631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_8
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607a571de0b3b72d0800000000000000
+      internalID: -3279962968779544826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_9
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4647528223a0c9930800000000000000
+      internalID: 4151204167066940516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_10
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb0140c4979dfd70800000000000000
+      internalID: 9078579088985230314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_11
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db5676b6a666a600800000000000000
+      internalID: 479183276573350868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_12
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608c0d6431fea0ea0800000000000000
+      internalID: -5905645095271479290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_13
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 6000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57074815ab2c2670800000000000000
+      internalID: 8515228983527671645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833efc6ec13116370800000000000000
+      internalID: 8313947401955042104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_15
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74a05f7c23c640b0800000000000000
+      internalID: -5744689678782520193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_16
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794f9ad7deaae77f0800000000000000
+      internalID: -612864562283547497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_17
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c58fe76ad165da0800000000000000
+      internalID: -5956540856218919878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_18
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066407c051b4f32d0800000000000000
+      internalID: -3296833848436832672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_19
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3a88a3d6146f510800000000000000
+      internalID: 1582524256456582086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_20
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4592c5577faf4f010800000000000000
+      internalID: 1221877339657087316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_21
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f922bc4932367ada0800000000000000
+      internalID: -5933664979565993313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_22
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 5000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36d37a06313f6b2d0800000000000000
+      internalID: -3263153615431844509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d82ec20a5a2b0780800000000000000
+      internalID: -8715826087762974504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_24
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a7e38b0ee4c5c20800000000000000
+      internalID: 3196516562596952639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_25
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4c03643f037cbd0800000000000000
+      internalID: -2610063637625125642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_26
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159b2156ea9970670800000000000000
+      internalID: 8504935395611556177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_27
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752418ae5ec894700800000000000000
+      internalID: 525105750675112535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_28
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fcc497d345736b0800000000000000
+      internalID: -5316688212082765943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_29
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b578843b6b76bee70800000000000000
+      internalID: 9145517502695507803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_30
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ae1c084374837e0800000000000000
+      internalID: -1785598961428338168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_31
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 4000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf87f5f178ebb60f0800000000000000
+      internalID: -1122594194542593796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755b857cb3da98d40800000000000000
+      internalID: 5587187284988966231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_33
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187b9efa4feb67c40800000000000000
+      internalID: 5509801152267007873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_34
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7022f3aa0616d17f0800000000000000
+      internalID: -640248504215723513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_35
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72bbf75c25e65b60800000000000000
+      internalID: 7734621388672840318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_36
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79375cb6725d7360800000000000000
+      internalID: 7168976851763149181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_37
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119e01f6625c8c490800000000000000
+      internalID: -7725708391891277551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_38
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ee96fe8562ddf70800000000000000
+      internalID: 9213562576085577276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_39
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf78c9b8a1accb040800000000000000
+      internalID: 4664825529409243131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_40
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 3000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97fe8fa4fe99e5e0800000000000000
+      internalID: -1879796595695880291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5f75e4ab5ac1d20800000000000000
+      internalID: 3250655250651543011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_42
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f4d7f7a24b68510800000000000000
+      internalID: 1551125216296259449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_43
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9939f1e53d35dad0800000000000000
+      internalID: -2678167101768124002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_44
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bdd05f1f859d610800000000000000
+      internalID: 1646444935002315565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_45
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f4d8890037e0ea0800000000000000
+      internalID: -5904655615039549662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_46
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36d2ab1713943b10800000000000000
+      internalID: 1960353465270195772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_47
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d6420becbbdc0c0800000000000000
+      internalID: -4553777151808869079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_48
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a52df7e5e1fb3120800000000000000
+      internalID: 2394773596619482528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_49
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62ba69ac07ba4e80800000000000000
+      internalID: -8193535307037363601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818b1b2fa186d6100800000000000000
+      internalID: 102852831449561112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_51
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71ea04855a3652e0800000000000000
+      internalID: -2137456834178784899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_52
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfef316195d1c4820800000000000000
+      internalID: 2903728128206831356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_53
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f287a82cbb55e43f0800000000000000
+      internalID: -914699409398532049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_54
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec1482ebd1d55b20800000000000000
+      internalID: 3122632658979658982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_55
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56e9c8fcb0be33f30800000000000000
+      internalID: 4554242084160970341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_56
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc87e57349c1c8d0800000000000000
+      internalID: -2827757799433859881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_57
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b4df2eb30a9f960800000000000000
+      internalID: 7636310822255151988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_58
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8dae7a3d48d381d0800000000000000
+      internalID: -3349595871628055158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7b450c755769910800000000000000
+      internalID: 1843790117204178890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_explosion_high_60
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f958616e629f6520800000000000000
+      internalID: 2697535704596503027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 86b05341ad749ea4c876c39aef3e2a84
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":9.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      fire_explosion_high_0: -5906894631561811187
+      fire_explosion_high_1: -5993173414571873331
+      fire_explosion_high_10: 9078579088985230314
+      fire_explosion_high_11: 479183276573350868
+      fire_explosion_high_12: -5905645095271479290
+      fire_explosion_high_13: 8515228983527671645
+      fire_explosion_high_14: 8313947401955042104
+      fire_explosion_high_15: -5744689678782520193
+      fire_explosion_high_16: -612864562283547497
+      fire_explosion_high_17: -5956540856218919878
+      fire_explosion_high_18: -3296833848436832672
+      fire_explosion_high_19: 1582524256456582086
+      fire_explosion_high_2: 3277324850343617998
+      fire_explosion_high_20: 1221877339657087316
+      fire_explosion_high_21: -5933664979565993313
+      fire_explosion_high_22: -3263153615431844509
+      fire_explosion_high_23: -8715826087762974504
+      fire_explosion_high_24: 3196516562596952639
+      fire_explosion_high_25: -2610063637625125642
+      fire_explosion_high_26: 8504935395611556177
+      fire_explosion_high_27: 525105750675112535
+      fire_explosion_high_28: -5316688212082765943
+      fire_explosion_high_29: 9145517502695507803
+      fire_explosion_high_3: 2434763136881307264
+      fire_explosion_high_30: -1785598961428338168
+      fire_explosion_high_31: -1122594194542593796
+      fire_explosion_high_32: 5587187284988966231
+      fire_explosion_high_33: 5509801152267007873
+      fire_explosion_high_34: -640248504215723513
+      fire_explosion_high_35: 7734621388672840318
+      fire_explosion_high_36: 7168976851763149181
+      fire_explosion_high_37: -7725708391891277551
+      fire_explosion_high_38: 9213562576085577276
+      fire_explosion_high_39: 4664825529409243131
+      fire_explosion_high_4: 3379392966087188788
+      fire_explosion_high_40: -1879796595695880291
+      fire_explosion_high_41: 3250655250651543011
+      fire_explosion_high_42: 1551125216296259449
+      fire_explosion_high_43: -2678167101768124002
+      fire_explosion_high_44: 1646444935002315565
+      fire_explosion_high_45: -5904655615039549662
+      fire_explosion_high_46: 1960353465270195772
+      fire_explosion_high_47: -4553777151808869079
+      fire_explosion_high_48: 2394773596619482528
+      fire_explosion_high_49: -8193535307037363601
+      fire_explosion_high_5: -1965056902117645733
+      fire_explosion_high_50: 102852831449561112
+      fire_explosion_high_51: -2137456834178784899
+      fire_explosion_high_52: 2903728128206831356
+      fire_explosion_high_53: -914699409398532049
+      fire_explosion_high_54: 3122632658979658982
+      fire_explosion_high_55: 4554242084160970341
+      fire_explosion_high_56: -2827757799433859881
+      fire_explosion_high_57: 7636310822255151988
+      fire_explosion_high_58: -3349595871628055158
+      fire_explosion_high_59: 1843790117204178890
+      fire_explosion_high_6: 90118030937298836
+      fire_explosion_high_60: 2697535704596503027
+      fire_explosion_high_7: 4828299001935184631
+      fire_explosion_high_8: -3279962968779544826
+      fire_explosion_high_9: 4151204167066940516
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
