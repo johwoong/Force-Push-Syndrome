@@ -1,0 +1,414 @@
+package com.couserver.staticdata.service;
+
+import com.couserver.staticdata.dto.*;
+import com.couserver.player.entity.PlayerStatType;
+import com.couserver.inventory.entity.ItemGrade;
+import lombok.Getter;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.EnumSet;
+import java.util.ArrayList;
+import java.util.EnumMap;
+
+// 시작할 때 data/의 정적 데이터를 읽고 검증해 메모리에 둔다. 원본 JSON은 클라이언트에 그대로 보내기 위해 함께 둔다.
+@Getter
+@Service
+public class StaticDataService {
+    private final String version;
+    private final Map<String, JsonNode> tables;
+
+    private final AccountConstData accountConst;
+    private final PlayerBaseStatData playerBaseStat;
+    private final Map<Integer, StageData> stages;
+    private final int firstStageId;                                     // 가장 작은 stageId
+    private final Map<Integer, List<WaveEntryData>> waves;              // key: waveId
+    private final Map<Integer, SpawnPatternData> spawnPatterns;
+    private final Map<Integer, MonsterData> monsters;
+    private final Map<Integer, Map<String, StageRosterData>> stageRosters; // key: stageId → monsterSlot
+    private final Map<MonsterType, List<DropTableEntryData>> dropTables; // key: monsterType
+    private final Map<DropItemType, DropItemData> dropItems;            // key: dropItemType
+    private final Map<Long, ItemData> items;
+    private final Map<Long, EquipEffectData> equipEffects;                          // key: effectId
+    private final Map<Long, Map<ItemGrade, List<EquipEffectData>>> itemGradeEffects; // key: itemId → 해금 등급, 목록은 시트 행 순서
+    private final Map<Integer, ShopProductData> shopProducts;
+    private final Map<Long, SkillData> skills;
+    private final Map<Long, Map<Integer, SkillLevelData>> skillLevels;  // key: Skill의 skillId → skillLevel
+    private final EvolutionData evolution;
+    private final CombatPowerData combatPower;
+    private final Map<Integer, AchievementData> achievements;
+
+    public StaticDataService(ObjectMapper objectMapper) throws IOException {
+        version = new ClassPathResource("data/version.txt").getContentAsString(StandardCharsets.UTF_8).trim();
+
+        // SheetExporter가 쓴 탭 이름 목록
+        List<String> tableNames = new ClassPathResource("data/tables.txt").getContentAsString(StandardCharsets.UTF_8)
+                .lines().map(String::trim).filter(name -> !name.isEmpty()).toList();
+
+        Map<String, JsonNode> loaded = new LinkedHashMap<>();
+        for (String name : tableNames) {
+            try (InputStream in = new ClassPathResource("data/" + name + ".json").getInputStream()) {
+                loaded.put(name, objectMapper.readTree(in));
+            }
+        }
+        tables = Collections.unmodifiableMap(loaded);
+
+        // 시트 값(Armor)을 대문자 enum(ARMOR)으로 읽고, record 필드에 해당하는 열이 없으면 실패한다
+        ObjectMapper rowMapper = objectMapper.rebuild()
+                .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
+                .enable(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES)
+                .build();
+
+        List<AccountConstData> accountConstRows = rows(rowMapper, "AccountConst", AccountConstData.class);
+        require(accountConstRows.size() == 1, "AccountConst 데이터는 행이 하나여야 합니다.");
+        accountConst = accountConstRows.getFirst();
+
+        List<PlayerBaseStatData> playerBaseStatRows = rows(rowMapper, "PlayerBaseStat", PlayerBaseStatData.class);
+        require(playerBaseStatRows.size() == 1, "PlayerBaseStat 데이터는 행이 하나여야 합니다.");
+        playerBaseStat = playerBaseStatRows.getFirst();
+
+        List<StageData> stageRows = rows(rowMapper, "Stage", StageData.class);
+        requireIds("Stage", stageRows, StageData::stageId);
+        stages = stageRows.stream()
+                .collect(Collectors.toUnmodifiableMap(StageData::stageId, Function.identity()));
+        firstStageId = Collections.min(stages.keySet());
+
+        List<WaveEntryData> waveRows = rows(rowMapper, "Wave", WaveEntryData.class);
+        requireIds("Wave", waveRows, WaveEntryData::waveEntryId);
+        waves = Map.copyOf(waveRows.stream()
+                .collect(Collectors.groupingBy(WaveEntryData::waveId, Collectors.toUnmodifiableList())));
+        for (WaveEntryData row : waveRows) {
+            require(row.patternStartTime() >= 0, "Wave " + row.waveEntryId() + "의 patternStartTime은 0 이상이어야 합니다.");
+            require(row.patternDuration() >= 0, "Wave " + row.waveEntryId() + "의 patternDuration은 0 이상이어야 합니다.");
+            // 반복 행(patternDuration > 0)인데 간격이 0이면 같은 순간에 끝없이 생성될 수 있다
+            require(row.patternDuration() <= 0 || row.spawnInterval() > 0,
+                    "Wave " + row.waveEntryId() + "은(는) 반복 행이라 spawnInterval이 0보다 커야 합니다.");
+        }
+
+        List<SpawnPatternData> spawnPatternRows = rows(rowMapper, "SpawnPattern", SpawnPatternData.class);
+        requireIds("SpawnPattern", spawnPatternRows, SpawnPatternData::patternId);
+        for (SpawnPatternData row : spawnPatternRows) {
+            require(row.spawnCount() >= 1, "SpawnPattern " + row.patternId() + "의 spawnCount는 1 이상이어야 합니다.");
+        }
+        spawnPatterns = spawnPatternRows.stream()
+                .collect(Collectors.toUnmodifiableMap(SpawnPatternData::patternId, Function.identity()));
+
+        List<MonsterData> monsterRows = rows(rowMapper, "Monster", MonsterData.class);
+        requireIds("Monster", monsterRows, MonsterData::monsterId);
+        monsters = monsterRows.stream()
+                .collect(Collectors.toUnmodifiableMap(MonsterData::monsterId, Function.identity()));
+
+        List<StageRosterData> stageRosterRows = rows(rowMapper, "StageRoster", StageRosterData.class);
+        requireIds("StageRoster", stageRosterRows, StageRosterData::stageRosterId);
+        Map<Integer, Map<String, StageRosterData>> rosterMap = new HashMap<>();
+        for (StageRosterData row : stageRosterRows) {
+            require(stages.containsKey(row.stageId()),
+                    "StageRoster " + row.stageRosterId() + "의 stageId " + row.stageId() + "을(를) Stage에서 찾을 수 없습니다.");
+            require(monsters.containsKey(row.monsterId()),
+                    "StageRoster " + row.stageRosterId() + "의 monsterId " + row.monsterId() + "을(를) Monster에서 찾을 수 없습니다.");
+            require(row.monsterHpScale() > 0, "StageRoster " + row.stageRosterId() + "의 monsterHpScale은 0보다 커야 합니다.");
+            require(row.monsterDamageScale() > 0, "StageRoster " + row.stageRosterId() + "의 monsterDamageScale은 0보다 커야 합니다.");
+            require(row.patternId() == 0 || spawnPatterns.containsKey(row.patternId()),
+                    "StageRoster " + row.stageRosterId() + "의 patternId " + row.patternId() + "을(를) SpawnPattern에서 찾을 수 없습니다.");
+            require(rosterMap.computeIfAbsent(row.stageId(), id -> new HashMap<>()).putIfAbsent(row.monsterSlot(), row) == null,
+                    "StageRoster " + row.stageRosterId() + ": Stage " + row.stageId() + "의 monsterSlot " + row.monsterSlot() + "이(가) 중복됩니다.");
+        }
+        stageRosters = rosterMap.entrySet().stream()
+                .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, entry -> Map.copyOf(entry.getValue())));
+
+        // 서버에서 쓰는 곳이 없어 맵 없이 검사만 한다
+        List<MonsterAttackData> monsterAttackRows = rows(rowMapper, "MonsterAttack", MonsterAttackData.class);
+        requireIds("MonsterAttack", monsterAttackRows, MonsterAttackData::monsterAttackId);
+        for (MonsterAttackData row : monsterAttackRows) {
+            MonsterData monster = monsters.get(row.monsterId());
+            require(monster != null,
+                    "MonsterAttack " + row.monsterAttackId() + "의 monsterId " + row.monsterId() + "을(를) Monster에서 찾을 수 없습니다.");
+            require(monster.monsterType() != MonsterType.BOX,
+                    "MonsterAttack " + row.monsterAttackId() + ": 상자(monsterId " + row.monsterId() + ")는 공격을 가질 수 없습니다.");
+            require(monster.monsterType() == MonsterType.BOSS || monster.monsterType() == MonsterType.MIDBOSS
+                            || row.monsterAttackType() != MonsterAttackType.MELEE,
+                    "MonsterAttack " + row.monsterAttackId() + ": 보스·중간 보스가 아닌 몬스터(monsterId " + row.monsterId() + ")는 MELEE를 쓸 수 없습니다.");
+        }
+
+        List<DropTableEntryData> dropTableRows = rows(rowMapper, "DropTable", DropTableEntryData.class);
+        for (DropTableEntryData row : dropTableRows) {
+            require(row.dropGroup() >= 0, "DropTable " + row.monsterType() + "의 dropGroup은 0 이상이어야 합니다.");
+            require(row.weight() >= 1, "DropTable " + row.monsterType() + "의 weight는 1 이상이어야 합니다.");
+            require(row.count() >= 1, "DropTable " + row.monsterType() + "의 count는 1 이상이어야 합니다.");
+        }
+        dropTables = Map.copyOf(dropTableRows.stream()
+                .collect(Collectors.groupingBy(DropTableEntryData::monsterType, Collectors.toUnmodifiableList())));
+        require(dropTables.keySet().containsAll(EnumSet.allOf(MonsterType.class)),
+                "DropTable에는 모든 monsterType(" + EnumSet.allOf(MonsterType.class) + ")의 행이 있어야 합니다.");
+
+        List<DropItemData> dropItemRows = rows(rowMapper, "DropItem", DropItemData.class);
+        requireIds("DropItem", dropItemRows, DropItemData::dropItemId);
+        for (DropItemData row : dropItemRows) {
+            require(row.dropItemType() != DropItemType.NONE, "DropItem " + row.dropItemId() + "의 dropItemType은 None일 수 없습니다.");
+        }
+        dropItems = dropItemRows.stream()
+                .collect(Collectors.toUnmodifiableMap(DropItemData::dropItemType, Function.identity()));
+
+        List<ItemData> itemRows = rows(rowMapper, "Item", ItemData.class);
+        requireIds("Item", itemRows, ItemData::itemId);
+        items = itemRows.stream()
+                .collect(Collectors.toUnmodifiableMap(ItemData::itemId, Function.identity()));
+
+        // 장비 등급 효과: 효과 정의 → 아이템·등급별 연결 순서로 읽는다
+        List<EquipEffectData> equipEffectRows = rows(rowMapper, "EquipEffect", EquipEffectData.class);
+        requireIds("EquipEffect", equipEffectRows, EquipEffectData::effectId);
+        for (EquipEffectData row : equipEffectRows) {
+            validateEquipEffect(row);
+        }
+        equipEffects = equipEffectRows.stream()
+                .collect(Collectors.toUnmodifiableMap(EquipEffectData::effectId, Function.identity()));
+
+        List<ItemGradeEffectData> itemGradeEffectRows = rows(rowMapper, "ItemGradeEffect", ItemGradeEffectData.class);
+        requireIds("ItemGradeEffect", itemGradeEffectRows, ItemGradeEffectData::itemGradeEffectId);
+        Map<Long, Map<ItemGrade, List<EquipEffectData>>> gradeEffectMap = new HashMap<>();
+        for (ItemGradeEffectData row : itemGradeEffectRows) {
+            validateItemGradeEffect(row, items.keySet(), equipEffects);
+            gradeEffectMap.computeIfAbsent(row.itemId(), id -> new EnumMap<>(ItemGrade.class))
+                    .computeIfAbsent(row.grade(), grade -> new ArrayList<>())
+                    .add(equipEffects.get(row.effectId()));
+        }
+        // 안쪽 맵·목록까지 수정 불가로 만든다 (다른 맵과 같은 규칙)
+        Map<Long, Map<ItemGrade, List<EquipEffectData>>> frozenGradeEffects = new HashMap<>();
+        gradeEffectMap.forEach((itemId, byGrade) -> {
+            Map<ItemGrade, List<EquipEffectData>> frozen = new EnumMap<>(ItemGrade.class);
+            byGrade.forEach((grade, effects) -> frozen.put(grade, List.copyOf(effects)));
+            frozenGradeEffects.put(itemId, Collections.unmodifiableMap(frozen));
+        });
+        itemGradeEffects = Collections.unmodifiableMap(frozenGradeEffects);
+
+        List<ShopProductData> shopRows = rows(rowMapper, "Shop", ShopProductData.class);
+        requireIds("Shop", shopRows, ShopProductData::productId);
+
+        Map<Integer, ShopProductData> shopMap = new LinkedHashMap<>();
+        for (ShopProductData row : shopRows) {
+            validateShopProduct(row, items.values());
+            shopMap.put(row.productId(), row);
+        }
+        shopProducts = Collections.unmodifiableMap(shopMap);
+
+        List<SkillData> skillRows = rows(rowMapper, "Skill", SkillData.class);
+        requireIds("Skill", skillRows, SkillData::skillId);
+        for (SkillData row : skillRows) {
+            require(row.skillCategory() == 0 || row.skillCategory() == 1,
+                    "Skill " + row.skillId() + "의 skillCategory는 0 또는 1이어야 합니다: " + row.skillCategory());
+        }
+        skills = skillRows.stream()
+                .collect(Collectors.toUnmodifiableMap(SkillData::skillId, Function.identity()));
+
+        // 숫자 열이 null이면 0으로 읽혀 통과하므로 원본 JSON에서 먼저 확인한다. description만 null이어도 된다
+        for (JsonNode raw : tables.get("SkillLevel").get("datas")) {
+            for (String column : List.of("skillLevelId", "skillId", "skillLevel",
+                    "effect1Type", "effect1Value", "effect2Type", "effect2Value")) {
+                require(raw.hasNonNull(column), "SkillLevel " + raw.path("skillLevelId") + "의 " + column + "은(는) 비어 있을 수 없습니다.");
+            }
+        }
+        List<SkillLevelData> skillLevelRows = rows(rowMapper, "SkillLevel", SkillLevelData.class);
+        requireIds("SkillLevel", skillLevelRows, SkillLevelData::skillLevelId);
+        Map<Long, Map<Integer, SkillLevelData>> levelMap = new HashMap<>();
+        for (SkillLevelData row : skillLevelRows) {
+            String name = "SkillLevel " + row.skillLevelId();
+            require(skills.containsKey(row.skillId()), name + "의 skillId " + row.skillId() + "을(를) Skill에서 찾을 수 없습니다.");
+            require(row.skillLevel() >= 1, name + "의 skillLevel은 1 이상이어야 합니다.");
+            require(levelMap.computeIfAbsent(row.skillId(), id -> new HashMap<>()).putIfAbsent(row.skillLevel(), row) == null,
+                    name + ": Skill " + row.skillId() + "의 skillLevel " + row.skillLevel() + "이(가) 중복됩니다.");
+        }
+        for (SkillData skill : skillRows) {
+            Map<Integer, SkillLevelData> levels = levelMap.get(skill.skillId());
+            require(levels != null, "Skill " + skill.skillId() + "의 SkillLevel 행이 없습니다.");
+            for (int level = 1; level <= levels.size(); level++) {
+                require(levels.containsKey(level),
+                        "Skill " + skill.skillId() + "의 SkillLevel은 1부터 끊김 없이 이어져야 합니다. (" + level + " 누락)");
+            }
+        }
+        skillLevels = levelMap.entrySet().stream()
+                .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, entry -> Map.copyOf(entry.getValue())));
+
+        List<AchievementData> achievementRows = rows(rowMapper, "Achievement", AchievementData.class);
+        requireIds("Achievement", achievementRows, AchievementData::achievementId);
+        for (AchievementData row : achievementRows) {
+            String name = "Achievement " + row.achievementId();
+            List<Integer> targets = row.targetValue();
+            require(targets != null && !targets.isEmpty(), name + "의 targetValue가 비어 있습니다.");
+            require(row.rewardItemType().size() == targets.size() && row.rewardAmount().size() == targets.size(),
+                    name + ": targetValue, rewardItemType, rewardAmount의 개수가 같아야 합니다.");
+            for (int i = 0; i < targets.size(); i++) {
+                require(targets.get(i) > 0 && (i == 0 || targets.get(i) > targets.get(i - 1)),
+                        name + "의 targetValue는 0보다 크고 단계마다 커져야 합니다.");
+                require(row.rewardAmount().get(i) >= 1, name + "의 rewardAmount는 1 이상이어야 합니다.");
+            }
+            switch (row.achievementConditionType()) {
+                case KILLBYSKILL, UPGRADESKILL -> {
+                    SkillData skill = skills.get((long) row.targetSkillId());
+                    require(skill != null, name + "의 targetSkillId " + row.targetSkillId() + "을(를) Skill에서 찾을 수 없습니다.");
+                    require(skill.skillCategory() == 0, name + "의 targetSkillId는 액티브 스킬이어야 합니다.");
+                    require(row.targetDropItemType() == DropItemType.NONE, name + "의 targetDropItemType은 None이어야 합니다.");
+                }
+                case PICKUPDROPITEM -> {
+                    require(row.targetSkillId() == 0, name + "의 targetSkillId는 0이어야 합니다.");
+                    require(row.targetDropItemType() != DropItemType.NONE, name + "의 targetDropItemType이 필요합니다.");
+                }
+                case GAINBATTLEEXP, GAINBATTLEGOLD, CLEARSTAGE, PLAYLUCKTRAIN ->
+                        require(row.targetSkillId() == 0 && row.targetDropItemType() == DropItemType.NONE,
+                                name + ": " + row.achievementConditionType() + "는 대상이 없어야 합니다.");
+            }
+        }
+        achievements = achievementRows.stream()
+                .collect(Collectors.toUnmodifiableMap(AchievementData::achievementId, Function.identity()));
+
+        List<EvolutionData> evolutionRows = rows(rowMapper, "Evolution", EvolutionData.class);
+        require(evolutionRows.size() == 1, "Evolution 데이터는 행이 하나여야 합니다.");
+        evolution = evolutionRows.getFirst();
+        require(evolution.evolutionStatOrder() != null && evolution.evolutionIncreasePerLevel() != null
+                        && evolution.evolutionStatOrder().size() == evolution.evolutionIncreasePerLevel().size(),
+                "Evolution의 evolutionStatOrder와 evolutionIncreasePerLevel은 개수가 같아야 합니다.");
+        require(evolution.evolutionStatOrder().size() == PlayerStatType.values().length
+                        && EnumSet.copyOf(evolution.evolutionStatOrder()).equals(EnumSet.allOf(PlayerStatType.class)),
+                "Evolution의 evolutionStatOrder에는 모든 스탯(" + EnumSet.allOf(PlayerStatType.class) + ")이 한 번씩 있어야 합니다.");
+        for (Integer increase : evolution.evolutionIncreasePerLevel()) {
+            require(increase != null && increase >= 0, "Evolution의 evolutionIncreasePerLevel은 0 이상이어야 합니다.");
+        }
+        require(evolution.evolutionBaseCost() >= 0, "Evolution의 evolutionBaseCost는 0 이상이어야 합니다.");
+        require(evolution.evolutionCostPerStep() >= 0, "Evolution의 evolutionCostPerStep은 0 이상이어야 합니다.");
+        require(evolution.evolutionMaxStep() >= 0, "Evolution의 evolutionMaxStep은 0 이상이어야 합니다.");
+        require(evolution.evolutionStepsPerLevel() >= 1, "Evolution의 evolutionStepsPerLevel은 1 이상이어야 합니다.");
+
+        List<CombatPowerData> combatPowerRows = rows(rowMapper, "CombatPower", CombatPowerData.class);
+        require(combatPowerRows.size() == 1, "CombatPower 데이터는 행이 하나여야 합니다.");
+        combatPower = combatPowerRows.getFirst();
+        require(combatPower.combatPowerAttackWeight() >= 0
+                        && combatPower.combatPowerHpWeight() >= 0
+                        && combatPower.combatPowerDefenseWeight() >= 0,
+                "CombatPower의 가중치는 0 이상이어야 합니다.");
+        // 치명타 반영 규칙(소수 계산 방식)이 정해지기 전까지는 켤 수 없다
+        require(!combatPower.combatPowerUseCritical(),
+                "CombatPower의 combatPowerUseCritical은 아직 지원하지 않습니다. false로 두세요.");
+
+        for (StageData row : stageRows) {
+            require(waves.containsKey(row.waveId()),
+                    "Stage " + row.stageId() + "의 waveId " + row.waveId() + "을(를) Wave에서 찾을 수 없습니다.");
+            Map<String, StageRosterData> roster = stageRosters.getOrDefault(row.stageId(), Map.of());
+            for (WaveEntryData entry : waves.get(row.waveId())) {
+                require(roster.containsKey(entry.monsterSlot()),
+                        "Stage " + row.stageId() + ": Wave " + entry.waveEntryId() + "의 monsterSlot " + entry.monsterSlot() + "을(를) StageRoster에서 찾을 수 없습니다.");
+            }
+        }
+        for (WaveEntryData row : waveRows) {
+            require(spawnPatterns.containsKey(row.patternId()),
+                    "Wave " + row.waveEntryId() + "의 patternId " + row.patternId() + "을(를) SpawnPattern에서 찾을 수 없습니다.");
+        }
+    }
+
+    // Shop 행 검증. 기동 시 한 번 호출되고, 단위 테스트에서도 직접 호출한다.
+    // - GEM 상품은 실제 결제(인앱 결제)로 파는 상품이다. 보석 가격이 없고(priceGem 0),
+    //   보석 결제 경로(ShopService.purchase)로는 지급하지 않는다
+    // - GOLD, RANDOMITEM 상품은 무료로 팔지 않는다. 시트에서 가격이 0으로 내보내지면 기동을 멈춘다
+    public static void validateShopProduct(ShopProductData row, Collection<ItemData> items) {
+        String name = "Shop " + row.productId();
+        require(row.priceGem() >= 0, name + "의 priceGem은 0 이상이어야 합니다.");
+        if (row.productType() != ProductType.GEM) {
+            require(row.priceGem() > 0, name + "의 priceGem은 1 이상이어야 합니다. (보석 상품 외에는 무료로 팔지 않는다)");
+        }
+
+        if (row.productType() == ProductType.RANDOMITEM) {
+            require(row.minGrade().ordinal() <= row.maxGrade().ordinal(),
+                    name + "의 minGrade가 maxGrade보다 높습니다.");
+            require(items.stream().anyMatch(i ->
+                            i.grade().ordinal() >= row.minGrade().ordinal()
+                                    && i.grade().ordinal() <= row.maxGrade().ordinal()),
+                    name + "의 등급 범위에 해당하는 Item이 없습니다.");
+        } else {
+            require(row.rewardAmount() >= 1, name + "의 rewardAmount는 1 이상이어야 합니다.");
+        }
+    }
+
+    // EquipEffect 행 검증. 기동 시 한 번 호출되고, 단위 테스트에서도 직접 호출한다.
+    // - 문자열 칸은 읽을 때 enum으로 바뀌므로, 모르는 값(오타)은 이미 읽기 단계에서 실패한다. 쓰지 않는 칸은 None
+    // - 제외 대상(79xxx)은 아래 조합·값 검사를 건너뛴다
+    // - 서버가 계산하는 HP·ATTACK·DEFENSE는 정수만 허용한다 (최종 스탯이 정수라 서버·클라이언트가 다르게 자르지 않도록)
+    public static void validateEquipEffect(EquipEffectData row) {
+        String name = "EquipEffect " + row.effectId();
+        require(row.effectCategory() != null && row.statType() != null && row.valueType() != null
+                        && row.triggerType() != null && row.actionType() != null,
+                name + "의 종류 칸은 비어 있을 수 없습니다. 쓰지 않는 칸은 None으로 채우세요.");
+        if (row.isExcluded()) {
+            return;
+        }
+
+        require(row.effectCategory() != EquipEffectCategory.NONE,
+                name + "의 effectCategory는 None일 수 없습니다. (None은 제외 대상 79xxx만 사용)");
+        switch (row.effectCategory()) {
+            case STAT -> {
+                require(row.statType() != EquipEffectStatType.NONE, name + "는 Stat형이라 statType이 필요합니다.");
+                require(row.valueType() == row.statType().requiredValueType(),
+                        name + "의 " + row.statType() + "는 valueType이 " + row.statType().requiredValueType() + "이어야 합니다: " + row.valueType());
+                if (row.statType() == EquipEffectStatType.HP
+                        || row.statType() == EquipEffectStatType.ATTACK
+                        || row.statType() == EquipEffectStatType.DEFENSE) {
+                    require(row.effectValue() == Math.rint(row.effectValue()),
+                            name + "의 " + row.statType() + " effectValue는 정수여야 합니다: " + row.effectValue());
+                }
+            }
+            case TRIGGER -> {
+                require(row.triggerType() != EquipEffectTriggerType.NONE, name + "는 Trigger형이라 triggerType이 필요합니다.");
+                require(row.actionType() != EquipEffectActionType.NONE, name + "는 Trigger형이라 actionType이 필요합니다.");
+            }
+            case BUFF, CONDITIONAL, NONE -> {
+                // BUFF·CONDITIONAL은 2차 범위라 표시만 한다. NONE은 위에서 이미 걸러졌다
+            }
+        }
+    }
+
+    // ItemGradeEffect 행 검증. itemId와 effectId가 실제로 있는지(FK) 확인한다
+    public static void validateItemGradeEffect(ItemGradeEffectData row, Set<Long> itemIds,
+                                               Map<Long, EquipEffectData> equipEffects) {
+        String name = "ItemGradeEffect " + row.itemGradeEffectId();
+        require(row.grade() != null, name + "의 grade가 비어 있습니다. (General / Super / Rare)");
+        require(itemIds.contains(row.itemId()), name + "의 itemId " + row.itemId() + "을(를) Item에서 찾을 수 없습니다.");
+        require(equipEffects.containsKey(row.effectId()),
+                name + "의 effectId " + row.effectId() + "을(를) EquipEffect에서 찾을 수 없습니다.");
+    }
+
+    private <T> List<T> rows(ObjectMapper rowMapper, String name, Class<T> type) {
+        JsonNode datas = tables.get(name).get("datas");
+        require(datas != null && datas.isArray() && !datas.isEmpty(), name + " 데이터 목록이 비어 있습니다.");
+        return rowMapper.readerForListOf(type).readValue(datas);
+    }
+
+    // 행마다 ID가 1 이상이고 겹치지 않는지 확인한다
+    private static <T> void requireIds(String name, List<T> rows, Function<T, ? extends Number> id) {
+        Set<Number> seen = new HashSet<>();
+        for (T row : rows) {
+            Number value = id.apply(row);
+            require(value.longValue() > 0, name + " ID가 올바르지 않습니다: " + value);
+            require(seen.add(value), "중복된 " + name + " ID: " + value);
+        }
+    }
+
+    private static void require(boolean condition, String message) {
+        if (!condition) {
+            throw new IllegalStateException(message);
+        }
+    }
+}
