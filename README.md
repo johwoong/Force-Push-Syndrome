@@ -10,7 +10,7 @@
 
 개발기간 : 2026.09.23 ~ 2026.10.21　|　개발인원 : 6명 (클라이언트·서버 겸업)
 
-[📡 itch.io에서 플레이](https://jyj8943.itch.io/force-push-syndrome) · [🎬 시연 영상](#) · [📂 팀 레포지토리](https://github.com/orgs/CodingOperationUnit/repositories)
+[📡 itch.io에서 플레이](https://jyj8943.itch.io/force-push-syndrome) · [🎬 시연 영상](https://youtu.be/2BoeA4nRx7Q) · [📂 팀 레포지토리](https://github.com/orgs/CodingOperationUnit/repositories)
 
 ##### 📌 이 문서는 팀 프로젝트 중 **제(조한웅)가 담당한 파트를 중심으로** 작성했으며, 팀 전체 구성은 [CONTRIBUTORS](#-contributors)에 정리했습니다.
 
@@ -241,7 +241,7 @@ Unity 클라이언트, AWS EC2의 Spring Boot, Docker Compose로 띄운 MySQL·R
 
 ### 5. 1:1 채팅 (REST + WebSocket)
 
-<!-- 채팅 화면 캡처를 docs/images/chat-ui.png로 추가 -->
+<img src="docs/images/chat-ui-a.png" width="25%"/> <img src="docs/images/chat-ui-b.png" width="25%"/>
 
 - **전송·내역은 REST**, **새 메시지 알림은 WebSocket push**로 나눴습니다. 핸드셰이크에서 인증하고 DB 커밋 이후에 push하며, 느린 클라이언트를 위해 전송 5초·버퍼 64KB 제한을 두었습니다. 친구끼리만, 200자까지 가능합니다.
 - 클라이언트(`ChatSocket`, `ServerChatManager`): 1·2·4·8초 백오프 재연결, 25초 ping, **재접속 시 마지막 메시지 id 이후만 조회해 누락 복구**, 3초 이상 끊기면 폴링 전환, 메시지 id 중복 제거.
@@ -255,20 +255,12 @@ Unity 클라이언트, AWS EC2의 Spring Boot, Docker Compose로 띄운 MySQL·R
 - ⚠️ **문제**: 같은 플레이어의 장착·합성·레벨업 요청이 동시에 들어오면 같은 잔액·장비 상태를 보고 둘 다 통과해 중복 처리될 위험이 있었습니다.
 - 📊 **원인**: 재화 행을 `findById`로 잠금 없이 읽는 "확인 후 실행" 구조였고, 레벨업은 장비를 먼저 읽고 잠금을 기다려 오래된 값으로 검증할 수 있었습니다.
 - 🆗 **해결**: 재화 행을 `findForUpdate`(비관적 락)로 읽는 **플레이어 단위 뮤텍스**를 도입하고, 장착·합성도 `lockPlayer()`로 같은 행을 먼저 잠그게 했습니다. 레벨업은 잠금을 장비 조회보다 앞으로 옮겼습니다.
-- ➡️ **결과**: 이 규칙이 상점·전투·진화에도 이어져 재화 행이 플레이어 단위 직렬화 지점이 되었습니다. 동시 요청 회귀 테스트는 다음 과제입니다.
+- ➡️ **결과**: 이 규칙이 상점·전투·진화에도 이어져 재화 행이 플레이어 단위 직렬화 지점이 되었습니다.
 
 ### 2. 랭킹 조회 부하 (DB 집계 → Redis ZSET)
 
 - ⚠️ **문제**: DB 집계는 조회할 때마다 전체를 정렬해야 해서 접속자가 늘수록 부하가 커집니다.
 - 🆗 **해결**: 조회는 Redis ZSET, 원본은 DB로 역할을 분리하고, 갱신은 커밋 이후 이벤트로 처리해 Redis 장애가 보상 지급을 막지 않게 했습니다.
-
-| 항목 | Before (DB 집계) | After (Redis ZSET) |
-| --- | --- | --- |
-| 평균 응답 시간 | `측정 후 기입` | `측정 후 기입` |
-| p95 응답 시간 | `측정 후 기입` | `측정 후 기입` |
-| 처리량 (req/s) | `측정 후 기입` | `측정 후 기입` |
-
-<!-- Before / After 캡처 -->
 
 ### 3. 채팅 연결이 끊겼을 때 메시지 누락
 
